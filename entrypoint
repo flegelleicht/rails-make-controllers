@@ -2,7 +2,7 @@
 
 set -e
 
-mkdir /bundle
+[[ -d /bundle ]] || mkdir /bundle
 bundle config --local path /bundle
 bundle check || bundle install
 
