@@ -1,0 +1,10 @@
+#! /usr/bin/env bash
+
+set -e
+
+mkdir /bundle
+bundle config --local path /bundle
+bundle check || bundle install
+
+exec "$@"
+

@@ -1,0 +1,22 @@
+version: '3'
+
+networks:
+  net__rails: ~
+
+services:
+  api:
+    image: ruby:2.6.3-stretch
+    working_dir: /project/api
+    entrypoint: ["/project/entrypoint"]
+    command: ["bash"]
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./:/project
+    ports:
+      - "3000:3000"
+    networks:
+      - net__rails
+    environment:
+      RAILS_ENV: development
+
